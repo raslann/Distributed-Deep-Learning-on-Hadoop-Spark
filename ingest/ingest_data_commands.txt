@@ -1,0 +1,18 @@
+# Download and unzip data
+wget https://www.cs.toronto.edu/~kriz/cifar-10-binary.tar.gz
+tar -xvf cifar-10-binary.tar.gz
+
+# Move binary files to HDFS
+hdfs dfs -mkdir /user/lhg256/hw8
+hdfs dfs -mkdir /user/lhg256/hw8/data
+hdfs dfs -mkdir /user/lhg256/hw8/test_data
+hdfs dfs -put data_batch_1.bin /user/lhg256/hw8/data/
+hdfs dfs -put data_batch_2.bin /user/lhg256/hw8/data/
+hdfs dfs -put data_batch_3.bin /user/lhg256/hw8/data/
+hdfs dfs -put data_batch_4.bin /user/lhg256/hw8/data/
+hdfs dfs -put data_batch_5.bin /user/lhg256/hw8/data/
+hdfs dfs -put test_batch.bin /user/lhg256/hw8/test_data/
+hdfs dfs -ls /user/lhg256/hw8/data
+
+
+

@@ -1,0 +1,13 @@
+javac -classpath "$(yarn classpath)" -d . *.java
+jar -cvf Profile1.jar WholeFileInputFormat.class WholeFileRecordReader.class ProfileCIFARData1.class ProfileCIFARData1Mapper.class ProfileCIFARData1Reducer.class
+jar -cvf Profile2.jar WholeFileInputFormat.class WholeFileRecordReader.class ProfileCIFARData2.class ProfileCIFARData2Mapper.class ProfileCIFARData2Reducer.class
+
+hadoop jar Profile1.jar ProfileCIFARData1 /user/lhg256/hw8/data /user/lhg256/hw8/output
+hadoop jar Profile2.jar ProfileCIFARData2 /user/lhg256/hw8/data /user/lhg256/hw8/output2
+hdfs dfs -cat /user/lhg256/hw8/output/part-r-00000
+hdfs dfs -cat /user/lhg256/hw8/output2/part-r-00000
+
+hadoop jar Profile1.jar ProfileCIFARData1 /user/lhg256/hw8/test_data /user/lhg256/hw8/output3
+hadoop jar Profile2.jar ProfileCIFARData2 /user/lhg256/hw8/test_data /user/lhg256/hw8/output4
+hdfs dfs -cat /user/lhg256/hw8/output3/part-r-00000
+hdfs dfs -cat /user/lhg256/hw8/output4/part-r-00000
